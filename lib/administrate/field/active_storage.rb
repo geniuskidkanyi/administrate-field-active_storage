@@ -5,6 +5,7 @@ module Administrate
   module Field
     class ActiveStorage < Administrate::Field::Base
       class Engine < ::Rails::Engine
+        Administrate::Engine.add_stylesheet "administrate-field-active_storage/application"
       end
 
       def index_display_preview?
@@ -13,6 +14,10 @@ module Administrate
 
       def index_preview_size
         options.fetch(:index_preview_size, [150, 150])
+      end
+
+      def index_preview_variant
+        options.fetch(:index_preview_variant, nil)
       end
 
       def index_display_count?
@@ -25,6 +30,10 @@ module Administrate
 
       def show_preview_size
         options.fetch(:show_preview_size, [800, 800])
+      end
+
+      def show_preview_variant
+        options.fetch(:show_preview_variant, nil)
       end
 
       def many?
